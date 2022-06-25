@@ -12,14 +12,25 @@ import {MatRadioModule} from "@angular/material/radio";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatSliderModule} from "@angular/material/slider";
 import {OverviewComponent} from "../components/overview/overview.component";
-import {StationComponent} from "../components/station/station.component";
+import {StationDetailsComponent} from "../components/station-details/station-details.component";
 import {MatCardModule} from "@angular/material/card";
+import {MatTableModule} from "@angular/material/table";
+import {MatIconModule} from "@angular/material/icon";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MAT_DIALOG_DATA, MatDialogModule} from "@angular/material/dialog";
+import {StationWeatherComponent} from "../components/station-weather/station-weather.component";
+import {MatBottomSheet, MatBottomSheetModule} from "@angular/material/bottom-sheet";
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
+import {environment} from "../environments/environment.prod";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
     AppComponent,
     OverviewComponent,
-    StationComponent
+    StationDetailsComponent,
+    StationWeatherComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +44,15 @@ import {MatCardModule} from "@angular/material/card";
     MatSelectModule,
     MatSliderModule,
     MatSlideToggleModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule,
+    MatIconModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatBottomSheetModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

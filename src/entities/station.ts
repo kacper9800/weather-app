@@ -1,13 +1,15 @@
 export class Station {
-  id: string
-  name: string;
-  ownerName: string;
-  location: string;
+  ID: string
+  Name: string;
+  Owner: string;
+  Location: string;
+  Actions: string;
 
-  constructor(id: string, name: string, ownerName: string, location: string) {
-    this.id = id;
-    this.name = name;
-    this.ownerName = ownerName;
-    this.location = location;
+  constructor(ID: string, Name: string, Owner: string, Location: string, Actions: string) {
+    this.ID = ID;
+    this.Name = Name;
+    this.Owner = Owner;
+    this.Location = Location;
+    this.Actions = Actions;
   }
 }

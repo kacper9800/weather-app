@@ -3,19 +3,22 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from "../environments/environment.prod";
 import {WeatherData} from "../entities/weather-data";
-
+import {AngularFireDatabase, AngularFireList} from "@angular/fire/compat/database";
 const API_URL = '/weather-data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherDataService {
+  dbPath = "pomiary";
   baseUrl = environment.baseUrl;
+  weatherData: AngularFireList<any[]>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private db: AngularFireDatabase) {
+    this.weatherData = db.list(this.dbPath);
   }
 
-  public getWeatherDataForStationId(stationId: string): Observable<WeatherData[]> {
-    return this.http.get<WeatherData[]>(this.baseUrl + API_URL + '/' + stationId);
+  getAll(): AngularFireList<any[]> {
+    return this.weatherData;
   }
 }
