@@ -10,9 +10,9 @@ const API_URL = '/weather-data';
   providedIn: 'root'
 })
 export class WeatherDataService {
-  dbPath = "pomiary";
+  dbPath = "/measures";
   baseUrl = environment.baseUrl;
-  weatherData: AngularFireList<any[]>;
+  weatherData: AngularFireList<WeatherData[]>;
 
   constructor(private http: HttpClient, private db: AngularFireDatabase) {
     this.weatherData = db.list(this.dbPath);
